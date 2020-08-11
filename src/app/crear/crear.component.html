@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a routerLink="/lugares">Lugares</a>/Crear Lugar
+    </li>
+  </ol>
+</nav>
+
+<div class="container">
+
+<div class="row">
+
+
+<div class="col-md-10">
+<div class="form-group">
+    <label for="exampleInputEmail1">Nombre</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese nombre " [(ngModel)]="lugar.nombre">
+</div>
+
+<div class="form-group">
+    <label for="exampleInputEmail1">Plan</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su plan" [(ngModel)]="lugar.plan">
+</div>
+
+<div class="form-group">
+    <label for="exampleInputEmail1">Distancia</label>
+    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese la distancia" [(ngModel)]="lugar.distancia">
+</div>
+
+<div class="form-group">
+    <label for="exampleInputEmail1">Cercania</label>
+    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese la cercania" [(ngModel)]="lugar.cercania">
+</div>
+
+<div class="form-group">
+  <label for="comment">Descripcion:</label>
+  <textarea class="form-control" rows="5" id="comment" [(ngModel)]="lugar.descripcion"></textarea>
+</div>
+  <button type="submit" class="btn btn-primary btn-space" (click)="guardarLugar()"><i class="fa fa-paper-plane"></i>Enviar</button>
+
+  <button type="submit" class="btn btn-primary btn-space" routerLink="/lugares"><i class="fa fa-close"></i>Cancelar</button>
+</div>
+
+</div>
+
+ </div>
+
+
+
+
+

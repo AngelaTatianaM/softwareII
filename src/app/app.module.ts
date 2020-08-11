@@ -12,13 +12,29 @@ import { LugaresComponent } from './lugares/lugares.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { LugaresService } from './Services/lugares.service';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { CrearComponent } from './crear/crear.component';
+
 const appRoutes: Routes = [
   {path:'', component: LugaresComponent},
   {path:'lugares', component: LugaresComponent}, 
   {path:'detalle/:id', component: DetalleComponent},
-  {path:'contacto', component: ContactoComponent}
+  {path:'contacto', component: ContactoComponent},
+  {path:'crear', component: CrearComponent}
 
 ];
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyDQY1w7B0loNV6CdZ3JRNzWLCODIbRnHC4",
+  authDomain: "sitiosturisticos-deb84.firebaseapp.com",
+  databaseURL: "https://sitiosturisticos-deb84.firebaseio.com",
+  storageBucket: "sitiosturisticos-deb84.appspot.com",
+  messagingSenderId: "730567629344",
+  appId: "1:730567629344:web:f421730c44af496bfaba45",
+  measurementId: "G-YR691GBVJM"
+};
 
 @NgModule({
   declarations: [
@@ -27,13 +43,17 @@ const appRoutes: Routes = [
     ConstarClicksDirective,
     DetalleComponent,
     LugaresComponent,
-    ContactoComponent
+    ContactoComponent,
+    CrearComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, 
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(firebaseConfig), 
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
     
   ],
   providers: [LugaresService],

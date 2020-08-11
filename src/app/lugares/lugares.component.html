@@ -3,6 +3,7 @@
    <div class="row">
       <div class="col-md-8">
         <h2> Lista de lugares </h2>
+        <button type="button" mdbBtn color="secondary" routerLink="/crear" mdbWavesEffect>Crear nuevo negocio</button>
          <ul class="list-group">
             <ng-container *ngFor="let lugar of lugares" >
                <a routerLink="/detalle/{{lugar.id}}"> <li class="list-group-item" *ngIf="lugar.active">{{lugar.nombre}}</li> </a>

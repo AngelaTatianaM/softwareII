@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Mapboxgl from "mapbox-gl";
 import { environment } from 'src/environments/environment';
+import { LugaresService } from '../Services/lugares.service';
 
 @Component({
   selector: 'app-lugares',
@@ -9,73 +10,19 @@ import { environment } from 'src/environments/environment';
 })
 export class LugaresComponent implements OnInit {
 
-  title = 'platzisquare';
-  lugares: any = [
+  title = 'Turismo Boyaca';
 
-      { id: 1,
-        plan: 'gratuito',
-        cercania: 1, 
-        distancia: 10, 
-        active: false, 
-        nombre: 'La Laguna de Tota'
-      },
-      { id: 2,
-        plan: 'pagado',
-        cercania: 1, 
-        distancia: 10, 
-        active: true, 
-        nombre: 'Puente de Boyacá'
-      },
-      { id: 3,
-        plan: 'gratuito',
-        cercania: 2, 
-        distancia: 10, 
-        active: true, 
-        nombre: 'Pantano de Vargas'
-      },
-      { id: 4,
-        plan: 'pagado',
-        cercania: 1, 
-        distancia: 10, 
-        active: false, 
-        nombre: 'Casa Terracota' 
-      },
-      { id: 5,
-        plan: 'pagado',
-        cercania: 3, 
-        distancia: 10, 
-        active: true, 
-        nombre: 'Sierra Nevada del Cocuy'
-      },
-      { id: 6,
-        plan: 'gratuito',
-        cercania: 2, 
-        distancia: 10, 
-        active: false, 
-        nombre: 'Macanal y el turismo de aventura'
-      },
-      { id: 7,
-        plan: 'pagado',
-        cercania: 1, 
-        distancia: 10, 
-        active: true, 
-        nombre: 'Los senderos de Tenza y la emisora de Sutatenza'
-      },
-      { id: 8,
-        plan: 'gratuito',
-        cercania: 3, 
-        distancia: 10, 
-        active: true, 
-        nombre: 'Guateque, artesanías, gastronomía y esmeraldas'
-      }
-  ]
 
    mapa: Mapboxgl.Map;
    coordinates : any;
+   lugares : any; 
 
 
-  constructor() {
+  constructor(
+    private lugaresS : LugaresService
+    ) {
 
+      this.lugares = lugaresS.getLugares();
   }
   ngOnInit(){
 
